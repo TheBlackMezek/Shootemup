@@ -111,7 +111,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lifetime: 5
   dmg: 10
-  shootForce: 10
+  shootForce: 20
   body: {fileID: 54115100633408250}
 --- !u!135 &135130166445132944
 SphereCollider:

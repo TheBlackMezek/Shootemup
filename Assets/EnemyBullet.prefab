@@ -110,7 +110,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lifetime: 5
-  dmg: 10
+  dmg: 5
   shootForce: 10
   body: {fileID: 54948302681252534}
 --- !u!135 &135654435574932528

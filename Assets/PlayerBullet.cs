@@ -10,9 +10,13 @@ public class PlayerBullet : MonoBehaviour {
 
     public Rigidbody body;
 
+    private bool hasHit = false;
 
-	public void Shoot()
+
+
+    public void Shoot()
     {
+        hasHit = false;
         body.velocity = Vector3.zero;
         body.AddForce(transform.forward * shootForce, ForceMode.Impulse);
         Invoke("Deactivate", lifetime);
@@ -25,10 +29,14 @@ public class PlayerBullet : MonoBehaviour {
 
     private void OnCollisionEnter(Collision collision)
     {
-        if(collision.transform.tag == "Enemy")
+        if (!hasHit && collision.transform.tag == "Enemy")
         {
-            Deactivate();
+            hasHit = true;
+            EnemyController c = collision.transform.GetComponent<EnemyController>();
+            c.Damage(dmg);
         }
+        CancelInvoke();
+        Deactivate();
     }
 
 }
